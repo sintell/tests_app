@@ -6,7 +6,7 @@ module.exports =
   # Lists all posts
   index: (req, res) ->
     Post.find {}, (err, posts) ->
-      res.send posts
+      res.render 'posts/index', {posts}
       
   # Creates new post with data from `req.body`
   create: (req, res) ->
