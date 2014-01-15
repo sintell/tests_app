@@ -1,0 +1,15 @@
+extends index
+block signup
+  form#sup(id="", method="POST", action="/user/create").span4
+    legend Регистрационные данные
+      input(type="text", placeholder="Имя пользователя")
+      input(type="text", placeholder="Пароль")
+      input(type="text", placeholder="Повтор пароля")
+    legend Личные данные
+      input(type="text", placeholder="Фамилия")
+      input(type="text", placeholder="Имя")
+      input(type="text", placeholder="Отчество")
+
+    .btn-group
+      a(href="/").btn Отмена
+      button.btn.btn-primary Зарегистрироваться и войти

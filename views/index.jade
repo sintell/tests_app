@@ -1,13 +1,32 @@
 extends layout
+extends layout
 block content
   h1.page-header Система интернет тестирования ИГУМО и ИТ
   .span12.text-center
-    .span4.hero-unit.text-center
-    
-        input(type="text", placeholder="Имя пользователя")
 
-        input(type="password", placeholder="Пароль")
-
-        a(href="#").btn.btn-large Войти в систему
     .span4.hero-unit.text-center
-      a(href="#", target="_blank") Еще не зарегистрированы?
+        block signup
+        #gr1
+          input(type="text", placeholder="Имя пользователя").login
+          input(type="password", placeholder="Пароль").password
+          a#signin(href="#").btn.btn-large.btn-primary Войти в систему
+        #gr2.hide
+          form#signup(id="", method="POST", action="/user/create")
+            legend Регистрационные данные
+            input(type="text", placeholder="Имя пользователя")
+            input(type="password", placeholder="Пароль")
+            input(type="password", placeholder="Повтор пароля")
+            legend Личные данные
+            input(type="text", placeholder="Фамилия")
+            input(type="text", placeholder="Имя")
+            input(type="text", placeholder="Отчество")
+
+            .btn-group
+              a(href="/").btn Отмена
+              button.btn.btn-primary Зарегистрироваться и войти
+
+
+    .span4.hero-unit.text-center
+      a#signup(href="#") Еще не зарегистрированы?
+      br
+      a#forgot(href="#popup", data-toggle="modal") Забыли пароль?
