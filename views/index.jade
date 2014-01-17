@@ -4,29 +4,54 @@ block content
   h1.page-header Система интернет тестирования ИГУМО и ИТ
   .span12.text-center
 
-    .span4.hero-unit.text-center
+    .span6.hero-unit.text-center
         block signup
         #gr1
-          input(type="text", placeholder="Имя пользователя").login
-          input(type="password", placeholder="Пароль").password
-          a#signin(href="#").btn.btn-large.btn-primary Войти в систему
+          form(id="signin_form", method="POST", action="/signin").form-horizontal
+            legend Вход в систему
+            .control-group
+              input(type="text", placeholder="Имя пользователя", name).login
+            .control-group
+              input(type="password", placeholder="Пароль", name).password
+            button(type="submit").btn.btn-large.btn-primary Войти в систему
         #gr2.hide
-          form#signup(id="", method="POST", action="/user/create")
+          form(id="signup_form", method="POST", action="/signup").form-horizontal
             legend Регистрационные данные
-            input(type="text", placeholder="Имя пользователя")
-            input(type="password", placeholder="Пароль")
-            input(type="password", placeholder="Повтор пароля")
-            legend Личные данные
-            input(type="text", placeholder="Фамилия")
-            input(type="text", placeholder="Имя")
-            input(type="text", placeholder="Отчество")
+            div#uname.control-group
+              label.control-label Имя пользователя
+              .controls
+                input(type="text", placeholder="Имя пользователя", name="username")
+            div#pwd.control-group
+              label.control-label Пароль
+              .controls
+                input(type="password", placeholder="Пароль", name="password")
+            div#pwdch.control-group
+              label.control-label Повтор пароля
+              .controls
+                input(type="password", placeholder="Повтор пароля", name="password_check")
+
+            legend Личные данные      
+            div#lname.control-group
+              label.control-label Фамилия
+              .controls
+                input(type="text", placeholder="Фамилия", name="last_name")
+            div#fname.control-group
+              label.control-label Имя
+              .controls
+                input(type="text", placeholder="Имя", name="first_name")
+            div#mname.control-group
+              label.control-label Отчество
+              .controls
+                input(type="text", placeholder="Отчество", name="middle_name")          
 
             .btn-group
-              a(href="/").btn Отмена
-              button.btn.btn-primary Зарегистрироваться и войти
+              a#hidegr2(href="#").btn Отмена
+              button(type="submit").btn.btn-primary Зарегистрироваться и войти
 
 
-    .span4.hero-unit.text-center
-      a#signup(href="#") Еще не зарегистрированы?
-      br
-      a#forgot(href="#popup", data-toggle="modal") Забыли пароль?
+    .span2.hero-unit.text-center
+      a#signup(href="#") 
+        small Еще не зарегистрированы?
+      hr
+      a#forgot(href="#popup", data-toggle="modal")
+        small Забыли пароль?

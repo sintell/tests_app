@@ -18,3 +18,18 @@ pre
   margin-bottom: 20px
   padding: 10px
   border: 1px solid black
+
+.ajax-loader {
+
+  position: relative;
+  &:after {
+    background: url("/img/ajax-loader.gif");
+    position: absolute;
+    margin-left: 10px;
+    top: 9px;
+    display: inline-block;
+    content: "";
+    width: 16px;
+    height: 11px;
+  }
+}
